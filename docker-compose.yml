@@ -1,0 +1,5 @@
+core:
+  build: .
+  volumes:
+    - ./:/code
+    - /code/node_modules # do not mount node_modules into the source directory

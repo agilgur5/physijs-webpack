@@ -1,5 +1,5 @@
-module.exports = function(THREE){
-    'use strict';
+module.exports = function (THREE) {
+	'use strict';
 
 	var SUPPORT_TRANSFERABLE,
 		_is_simulating = false,
@@ -17,7 +17,7 @@ module.exports = function(THREE){
 		_temp_matrix4_1 = new THREE.Matrix4,
 		_quaternion_1 = new THREE.Quaternion,
 
-        // constants
+		// constants
 		MESSAGE_TYPES = {
 			WORLDREPORT: 0,
 			COLLISIONREPORT: 1,
@@ -28,8 +28,6 @@ module.exports = function(THREE){
 		COLLISIONREPORT_ITEMSIZE = 5,
 		VEHICLEREPORT_ITEMSIZE = 9,
 		CONSTRAINTREPORT_ITEMSIZE = 6;
-
-	Physijs.scripts = {};
 
 	Eventable = function() {
 		this._eventListeners = {};
@@ -322,8 +320,8 @@ module.exports = function(THREE){
 		} else if ( target instanceof THREE.Euler ) {
 			target = new THREE.Quaternion().setFromEuler( target );
 		} else if ( target instanceof THREE.Matrix4 ) {
-            target = new THREE.Quaternion().setFromRotationMatrix( target );
-        }
+			target = new THREE.Quaternion().setFromRotationMatrix( target );
+		}
 		this.scene.execute( 'conetwist_setMotorTarget', { constraint: this.id, x: target.x, y: target.y, z: target.z, w: target.w } );
 	};
 	Physijs.ConeTwistConstraint.prototype.disableMotor = function() {
@@ -390,7 +388,8 @@ module.exports = function(THREE){
 		Eventable.call( this );
 		THREE.Scene.call( this );
 
-		this._worker = new Worker( Physijs.scripts.worker || 'physijs_worker.js' );
+		var PhysijsWorker = require('worker!./physijs_worker.js');
+		this._worker = new PhysijsWorker();
 		this._worker.transferableMessage = this._worker.webkitPostMessage || this._worker.postMessage;
 		this._materials_ref_counts = {};
 		this._objects = {};
@@ -485,7 +484,6 @@ module.exports = function(THREE){
 
 
 		params = params || {};
-		params.ammo = Physijs.scripts.ammo || 'ammo.js';
 		params.fixedTimeStep = params.fixedTimeStep || 1 / 60;
 		params.rateLimit = params.rateLimit || true;
 		this.execute( 'init', params );
@@ -621,8 +619,8 @@ module.exports = function(THREE){
 		 * If you feel inclined to make this better, please do so.
 		 */
 
-		var i, j, offset, object, object2,
-			collisions = {}, collided_with = [], normal_offsets = {};
+		var i, j, offset, object, object2, id1, id2,
+			collisions = {}, normal_offsets = {};
 
 		// Build collision manifest
 		for ( i = 0; i < data[1]; i++ ) {
@@ -633,26 +631,38 @@ module.exports = function(THREE){
 			normal_offsets[ object + '-' + object2 ] = offset + 2;
 			normal_offsets[ object2 + '-' + object ] = -1 * ( offset + 2 );
 
+			// Register collisions for both the object colliding and the object being collided with
 			if ( !collisions[ object ] ) collisions[ object ] = [];
 			collisions[ object ].push( object2 );
+
+			if ( !collisions[ object2 ] ) collisions[ object2 ] = [];
+			collisions[ object2 ].push( object );
 		}
 
 		// Deal with collisions
-		for ( object in this._objects ) {
-			if ( !this._objects.hasOwnProperty( object ) ) return;
-			object = this._objects[ object ];
+		for ( id1 in this._objects ) {
+			if ( !this._objects.hasOwnProperty( id1 ) ) continue;
+			object = this._objects[ id1 ];
 
-			if ( collisions[ object._physijs.id ] ) {
+			// If object touches anything, ...
+			if ( collisions[ id1 ] ) {
 
-				// this object is touching others
-				collided_with.length = 0;
+				// Clean up touches array
+				for ( j = 0; j < object._physijs.touches.length; j++ ) {
+					if ( collisions[ id1 ].indexOf( object._physijs.touches[j] ) === -1 ) {
+						object._physijs.touches.splice( j--, 1 );
+					}
+				}
 
-				for ( j = 0; j < collisions[ object._physijs.id ].length; j++ ) {
-					object2 = this._objects[ collisions[ object._physijs.id ][j] ];
+				// Handle each colliding object
+				for ( j = 0; j < collisions[ id1 ].length; j++ ) {
+					id2 = collisions[ id1 ][ j ];
+					object2 = this._objects[ id2 ];
 
 					if ( object2 ) {
-						if ( object._physijs.touches.indexOf( object2._physijs.id ) === -1 ) {
-							object._physijs.touches.push( object2._physijs.id );
+						// If object was not already touching object2, notify object
+						if ( object._physijs.touches.indexOf( id2 ) === -1 ) {
+							object._physijs.touches.push( id2 );
 
 							_temp_vector3_1.subVectors( object.getLinearVelocity(), object2.getLinearVelocity() );
 							_temp1 = _temp_vector3_1.clone();
@@ -677,15 +687,7 @@ module.exports = function(THREE){
 							}
 
 							object.dispatchEvent( 'collision', object2, _temp1, _temp2, _temp_vector3_1 );
-							object2.dispatchEvent( 'collision', object, _temp1, _temp2, _temp_vector3_1.negate() );
 						}
-
-						collided_with.push( object2._physijs.id );
-					}
-				}
-				for ( j = 0; j < object._physijs.touches.length; j++ ) {
-					if ( collided_with.indexOf( object._physijs.touches[j] ) === -1 ) {
-						object._physijs.touches.splice( j--, 1 );
 					}
 				}
 
@@ -698,19 +700,7 @@ module.exports = function(THREE){
 
 		}
 
-    // if A is in B's collision list, then B should be in A's collision list
-    for (var id in collisions) {
-		if ( collisions.hasOwnProperty( id ) && collisions[id] ) {
-			for ( j = 0; j < collisions[id].length; j++) {
-				if (collisions[id][j]) {
-					collisions[ collisions[id][j] ] = collisions[ collisions[id][j] ] || [];
-					collisions[ collisions[id][j] ].push(id);
-				}
-			}
-		}
-    }
-
-    this.collisions = collisions;
+		this.collisions = collisions;
 
 		if ( SUPPORT_TRANSFERABLE ) {
 			// Give the typed array back to the worker
@@ -783,6 +773,10 @@ module.exports = function(THREE){
 		return constraint;
 	};
 
+	Physijs.Scene.prototype.onSimulationResume = function() {
+		this.execute( 'onSimulationResume', { } );
+	};
+
 	Physijs.Scene.prototype.removeConstraint = function( constraint ) {
 		if ( this._constraints[constraint.id ] !== undefined ) {
 			this.execute( 'removeConstraint', { id: constraint.id } );
@@ -802,7 +796,7 @@ module.exports = function(THREE){
 				object.children[i].updateMatrix();
 				object.children[i].updateMatrixWorld();
 
-				_temp_vector3_1.getPositionFromMatrix( object.children[i].matrixWorld );
+				_temp_vector3_1.setFromMatrixPosition( object.children[i].matrixWorld );
 				_quaternion_1.setFromRotationMatrix( object.children[i].matrixWorld );
 
 				object.children[i]._physijs.position_offset = {
@@ -896,7 +890,7 @@ module.exports = function(THREE){
 				this.execute( 'removeObject', { id: object._physijs.id } );
 			}
 		}
-		if ( this._materials_ref_counts.hasOwnProperty( object.material._physijs.id ) ) {
+		if ( object.material && object.material._physijs && this._materials_ref_counts.hasOwnProperty( object.material._physijs.id ) ) {
 			this._materials_ref_counts[object.material._physijs.id]--;
 			if(this._materials_ref_counts[object.material._physijs.id] == 0) {
 				this.execute( 'unRegisterMaterial', object.material._physijs );
@@ -1004,6 +998,13 @@ module.exports = function(THREE){
 	Physijs.Mesh.prototype.applyImpulse = function ( force, offset ) {
 		if ( this.world ) {
 			this.world.execute( 'applyImpulse', { id: this._physijs.id, impulse_x: force.x, impulse_y: force.y, impulse_z: force.z, x: offset.x, y: offset.y, z: offset.z } );
+		}
+	};
+
+	// Physijs.Mesh.applyTorque
+	Physijs.Mesh.prototype.applyTorque = function ( force ) {
+		if ( this.world ) {
+			this.world.execute( 'applyTorque', { id: this._physijs.id, torque_x: force.x, torque_y: force.y, torque_z: force.z } );
 		}
 	};
 
