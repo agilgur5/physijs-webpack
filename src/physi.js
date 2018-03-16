@@ -388,7 +388,7 @@ module.exports = function (THREE) {
 		Eventable.call( this );
 		THREE.Scene.call( this );
 
-		var PhysijsWorker = require('worker!./physijs_worker.js');
+		var PhysijsWorker = require('worker-loader!./physijs_worker.js');
 		this._worker = new PhysijsWorker();
 		this._worker.transferableMessage = this._worker.webkitPostMessage || this._worker.postMessage;
 		this._materials_ref_counts = {};
