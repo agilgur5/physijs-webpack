@@ -5,11 +5,7 @@
 ### webpack
 
 ```javascript
-var THREE = require('three');
-var PhysijsWorker = require('worker-loader!physijs-webpack/physijs_worker.js');
-
-// inject Three.js and Physijs's Worker
-var Physijs = require('physijs-webpack')(THREE, PhysijsWorker);
+var Physijs = require('physijs-webpack');
 ```
 
 and install `worker-loader` with:
@@ -21,12 +17,7 @@ npm install -D worker-loader
 ### browserify
 
 ```javascript
-var THREE = require('three');
-var work = require('webworkify');
-var PhysijsWorker = work(require('physijs-webpack/physijs_worker.js'));
-
-// inject Three.js and Physijs's Worker
-var Physijs = require('physijs-webpack')(THREE, PhysijsWorker);
+var Physijs = require('physijs-webpack/browserify');
 ```
 
 and install `webworkify` with:
