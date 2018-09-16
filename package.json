@@ -8,9 +8,18 @@
   },
   "keywords": [
     "physijs",
+    "physi.js",
+    "webpack",
     "browserify",
+    "commonjs",
     "module",
-    "threejs"
+    "modules",
+    "npm",
+    "ammo",
+    "ammo.js",
+    "threejs",
+    "three.js",
+    "port"
   ],
   "repository": {
     "type":"git",
