@@ -1,7 +1,7 @@
 {
-  "name": "physijs-browserify",
-  "version": "0.0.2",
-  "description": "PhysiJS for browserify",
+  "name": "physijs-webpack",
+  "version": "0.0.1",
+  "description": "PhysiJS for webpack",
   "main": "physi.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,15 +12,14 @@
     "module",
     "threejs"
   ],
-  "repository":
-  {
+  "repository": {
     "type":"git",
-    "url" : "git@github.com:silviopaganini/physijs-browserify.git"
+    "url" : "git@github.com:agilgur5/physijs-webpack.git"
   },
-  "homepage": "https://github.com/chandlerprall/Physijs",
+  "homepage": "https://github.com/agilgur5/physijs-webpack",
   "bugs": {
-    "url": "https://github.com/chandlerprall/Physijs/issues"
+    "url": "https://github.com/agilgur5/physijs-webpack/issues"
   },
-  "author": "silvio paganini and chanderprall",
-  "license": "ISC"
+  "author": "agilgur5",
+  "license": "MIT"
 }

@@ -1,21 +1,14 @@
-# PhysiJS port for browserify
+# PhysiJS port for webpack
 
-Include the folder libs on your project, it has `ammo.js` and PhysiJS worker
+Usage:
 
-Usage: 
-
-```
+```javascript
 var THREE = require('three');
+var PhysijsWorker = require('worker-loader!physijs-webpack/physijs_worker.js');
 
-// inject Three.js
-var Physijs = require('physijs-browserify')(THREE);
-
-Physijs.scripts.worker = '/physijs_worker.js';
-Physijs.scripts.ammo = '/vendor/ammo.js';
-
-
+// inject Three.js and Physijs's Worker
+var Physijs = require('physijs-webpack')(THREE, PhysijsWorker);
 ```
 
-For more info see [https://github.com/chandlerprall/Physijs](https://github.com/chandlerprall/Physijs)
-
-Full example [http://labs.fluuu.id/syn](http://labs.fluuu.id/syn)
+Thanks to @silviopaganini for creating the [initial browserify version](https://github.com/silviopaganini/physijs-browserify)!
+And of course @chandlerprall for creating [Physijs itself](https://github.com/chandlerprall/Physijs)!
