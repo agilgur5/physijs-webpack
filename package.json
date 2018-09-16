@@ -1,46 +1,26 @@
 {
-  "name": "physijs-webpack",
-  "version": "0.0.1",
-  "description": "PhysiJS for Webpack",
-  "main": "build/physi.js.bundle.js",
+  "name": "physijs-browserify",
+  "version": "0.0.2",
+  "description": "PhysiJS for browserify",
+  "main": "physi.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "webpack --watch -d",
-    "produce": "webpack -p"
-  },
-  "dependencies": {
-    "ammo.js": "0.0.10"
-  },
-  "peerDependencies": {
-    "three": "0.73.0"
-  },
-  "devDependencies": {
-    "webpack": "^1.13.0",
-    "worker-loader": "^0.7.0"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "physijs",
-    "physi.js",
-    "webpack",
     "browserify",
-    "commonjs",
     "module",
-    "modules",
-    "npm",
-    "ammo",
-    "ammo.js",
-    "threejs",
-    "three.js",
-    "port"
+    "threejs"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:agilgur5/physijs-webpack.git"
+  "repository":
+  {
+    "type":"git",
+    "url" : "git@github.com:silviopaganini/physijs-browserify.git"
   },
   "homepage": "https://github.com/chandlerprall/Physijs",
   "bugs": {
     "url": "https://github.com/chandlerprall/Physijs/issues"
   },
-  "author": "agilgur5",
-  "license": "MIT"
+  "author": "silvio paganini and chanderprall",
+  "license": "ISC"
 }
