@@ -26,6 +26,10 @@ and install `webworkify` with:
 npm install -D webworkify
 ```
 
+### other bundlers
+
+See the [webpack.js](webpack.js) and [browserify.js](browserify.js) files for examples as to how one might configure for a different bundler.
+
 ## Credits
 
 Thanks to @silviopaganini for creating the [initial browserify version](https://github.com/silviopaganini/physijs-browserify)!
