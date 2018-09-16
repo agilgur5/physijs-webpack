@@ -6,6 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "peerDependencies": {
+    "three": "0.73.0"
+  },
   "keywords": [
     "physijs",
     "physi.js",
