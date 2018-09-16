@@ -10,8 +10,8 @@ var THREE = require('three');
 // inject Three.js
 var Physijs = require('physijs-browserify')(THREE);
 
-Physijs.scripts.worker = '/libs/physi-worker.js';
-Physijs.scripts.ammo = '/libs/ammo.js';
+Physijs.scripts.worker = '/physijs_worker.js';
+Physijs.scripts.ammo = '/vendor/ammo.js';
 
 
 ```
