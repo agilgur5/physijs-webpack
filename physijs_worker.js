@@ -1,5 +1,5 @@
 'use strict';
-var Ammo = require('./vendor/ammo.js');
+var Ammo = require('./vendor/ammo.js').Ammo;
 
 var
 	transferableMessage = self.webkitPostMessage || self.postMessage,
