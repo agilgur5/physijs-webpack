@@ -3,17 +3,8 @@
 ## Installation
 
 ```bash
-npm install -S agilgur5/physijs-webpack
+npm install -S physijs-webpack
 ```
-
-This will install from this repo.
-Why not an NPM package?
-
-Because the existing `physijs` and `physijs-webpack` packages are not owned by me... :/
-They do apparently refer back to this repo, but were created when this repo was in an incomplete and broken state some years ago; they never worked to begin with as a result.
-See also [this Twitter thread](https://twitter.com/_drewpowers/status/907719141213200385).
-
-I'll see if I can get ownership of those NPM packages somehow. TBD.
 
 ## Usage
 
