@@ -1,5 +1,7 @@
 # PhysiJS port for bundlers
 
+A [PhysiJS](https://github.com/chandlerprall/Physijs) port for bundlers with out-of-the-box support for Webpack and Browserify
+
 ## Installation
 
 ```bash
