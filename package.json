@@ -1,7 +1,7 @@
 {
   "name": "physijs-webpack",
   "version": "0.1.0",
-  "description": "PhysiJS for webpack",
+  "description": "PhysiJS port for bundlers with out-of-the-box support for Webpack and Browserify",
   "main": "webpack.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
