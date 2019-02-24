@@ -1,5 +1,16 @@
 # PhysiJS port for bundlers
 
+[![package-json](https://img.shields.io/github/package-json/v/agilgur5/physijs-webpack.svg)](https://npmjs.org/package/physijs-webpack)
+[![releases](https://img.shields.io/github/release/agilgur5/physijs-webpack.svg)](https://github.com/agilgur5/physijs-webpack/releases)
+[![commits](https://img.shields.io/github/commits-since/agilgur5/physijs-webpack/latest.svg)](https://github.com/agilgur5/physijs-webpack/commits/master)
+
+[![dt](https://img.shields.io/npm/dt/physijs-webpack.svg)](https://npmjs.org/package/physijs-webpack)
+[![dy](https://img.shields.io/npm/dy/physijs-webpack.svg)](https://npmjs.org/package/physijs-webpack)
+[![dm](https://img.shields.io/npm/dm/physijs-webpack.svg)](https://npmjs.org/package/physijs-webpack)
+[![dw](https://img.shields.io/npm/dw/physijs-webpack.svg)](https://npmjs.org/package/physijs-webpack)
+
+[![NPM](https://nodei.co/npm/physijs-webpack.png?downloads=true&downloadRank=true&stars=true)](https://npmjs.org/package/physijs-webpack)
+
 A [PhysiJS](https://github.com/chandlerprall/Physijs) port for bundlers with out-of-the-box support for Webpack and Browserify
 
 ## Installation
