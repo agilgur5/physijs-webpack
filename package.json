@@ -1,6 +1,6 @@
 {
   "name": "physijs-webpack",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "PhysiJS for webpack",
   "main": "webpack.js",
   "scripts": {
