@@ -1,8 +1,14 @@
-var THREE = require('three');
-var work = require('webworkify');
-var PhysijsWorker = work(require('./physijs_worker.js'));
+class work {
+	constructor(){
+		const work = require('webworkify');
+		return work;
+	}
+}
 
-// inject Three.js and Physijs's Worker
-var Physijs = require('./physi.js')(THREE, PhysijsWorker);
+const THREE = require('three'),
+	  PhysijsWorker = new work(require('./physijs_worker.js')),
+	  
+	  // inject Three.js and Physijs's Worker
+	  Physijs = require('./physi.js')(THREE, PhysijsWorker);
 
 module.exports = Physijs;
