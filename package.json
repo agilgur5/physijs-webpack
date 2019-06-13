@@ -25,8 +25,8 @@
     "port"
   ],
   "repository": {
-    "type":"git",
-    "url" : "git@github.com:agilgur5/physijs-webpack.git"
+    "type": "git",
+    "url": "git@github.com:agilgur5/physijs-webpack.git"
   },
   "homepage": "https://github.com/agilgur5/physijs-webpack",
   "bugs": {
