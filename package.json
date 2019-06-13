@@ -3,6 +3,14 @@
   "version": "0.1.1",
   "description": "PhysiJS port for bundlers with out-of-the-box support for Webpack and Browserify",
   "main": "webpack.js",
+  "files": [
+    "physi.js",
+    "physijs_worker.js",
+    "vendor/*",
+    "webpack.js",
+    "browserify.js",
+    "browserify-worker-stub.js"
+  ],
   "scripts": {
     "test": "npm run test:browserify",
     "test:browserify": "npm run browserify && ava browserify.spec.js",
