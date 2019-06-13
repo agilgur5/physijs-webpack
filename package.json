@@ -4,7 +4,9 @@
   "description": "PhysiJS port for bundlers with out-of-the-box support for Webpack and Browserify",
   "main": "webpack.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run test:browserify",
+    "test:browserify": "npm run browserify && node browserify.spec.js",
+    "browserify": "browserify test-utils/browserify/export-to-window.js > build/browserify.bundle.js"
   },
   "peerDependencies": {
     "three": "^0.73.0"
@@ -33,5 +35,13 @@
     "url": "https://github.com/agilgur5/physijs-webpack/issues"
   },
   "author": "agilgur5",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@react-frontend-developer/jsdom-worker": "^0.1.1",
+    "browser-env": "^3.2.6",
+    "browserify": "^16.2.3",
+    "node-fetch": "^2.6.0",
+    "three": "^0.73.2",
+    "webworkify": "^1.5.0"
+  }
 }
