@@ -12,9 +12,11 @@
     "browserify-worker-stub.js"
   ],
   "scripts": {
-    "test": "npm run test:browserify",
+    "test": "npm run test:browserify && npm run test:webpack",
     "test:browserify": "npm run browserify && ava browserify.spec.js",
-    "browserify": "browserify test-utils/browserify/_export-to-window.js > build/browserify.bundle.js"
+    "test:webpack": "npm run webpack && ava webpack.spec.js",
+    "browserify": "browserify test-utils/browserify/_export-to-window.js > build/browserify.bundle.js",
+    "webpack": "webpack test-utils/webpack/_export-to-window.js -o build/webpack.bundle.js --mode='development'"
   },
   "ava": {
     "require": [
@@ -56,6 +58,9 @@
     "browserify": "^16.2.3",
     "node-fetch": "^2.6.0",
     "three": "^0.73.2",
-    "webworkify": "^1.5.0"
+    "webpack": "^4.34.0",
+    "webpack-cli": "^3.3.4",
+    "webworkify": "^1.5.0",
+    "worker-loader": "^2.0.0"
   }
 }
