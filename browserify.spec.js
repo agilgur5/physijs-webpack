@@ -1,8 +1,8 @@
-require('browser-env')()
-require('@react-frontend-developer/jsdom-worker')
+import test from 'ava'
 
-var Physijs = require('./test-utils/browserify/import-bundle-to-module.js')
-console.log(Physijs)
+import Physijs from './test-utils/browserify/_import-bundle-to-module.js'
 
-var scene = new Physijs.Scene()
-console.log(scene)
+test('Scene creation', t => {
+  const scene = new Physijs.Scene()
+  t.is(scene.type, 'Scene')
+})
