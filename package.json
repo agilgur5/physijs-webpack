@@ -12,11 +12,12 @@
     "browserify-worker-stub.js"
   ],
   "scripts": {
-    "test": "npm run test:browserify && npm run test:webpack",
+    "test": "npm run clean && npm run browserify && npm run webpack && ava",
     "test:browserify": "npm run browserify && ava browserify.spec.js",
     "test:webpack": "npm run webpack && ava webpack.spec.js",
     "browserify": "browserify test-utils/browserify/_export-to-window.js > build/browserify.bundle.js",
-    "webpack": "webpack test-utils/webpack/_export-to-window.js -o build/webpack.bundle.js --mode='development'"
+    "webpack": "webpack test-utils/webpack/_export-to-window.js -o build/webpack.bundle.js --mode='development'",
+    "clean": "rm -rf build/ && mkdir build/"
   },
   "ava": {
     "require": [
