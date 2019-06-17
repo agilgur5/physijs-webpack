@@ -15,5 +15,7 @@ module.exports = {
   // don't parse ammo
   module: {
     noParse: require.resolve('../../physijs/vendor/ammo.js')
-  }
+  },
+  // source maps needed for test coverage reporting
+  devtool: 'source-map'
 }

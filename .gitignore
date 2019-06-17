@@ -1,4 +1,5 @@
 build/
+.nyc_output/
 
 ### Node ###
 
