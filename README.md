@@ -1,14 +1,17 @@
 # PhysiJS port for bundlers
 
+[//]: # (releases / versioning)
 [![package-json](https://img.shields.io/github/package-json/v/agilgur5/physijs-webpack.svg)](https://npmjs.org/package/physijs-webpack)
 [![releases](https://img.shields.io/github/release/agilgur5/physijs-webpack.svg)](https://github.com/agilgur5/physijs-webpack/releases)
 [![commits](https://img.shields.io/github/commits-since/agilgur5/physijs-webpack/latest.svg)](https://github.com/agilgur5/physijs-webpack/commits/master)
 
+[//]: # (downloads)
 [![dt](https://img.shields.io/npm/dt/physijs-webpack.svg)](https://npmjs.org/package/physijs-webpack)
 [![dy](https://img.shields.io/npm/dy/physijs-webpack.svg)](https://npmjs.org/package/physijs-webpack)
 [![dm](https://img.shields.io/npm/dm/physijs-webpack.svg)](https://npmjs.org/package/physijs-webpack)
 [![dw](https://img.shields.io/npm/dw/physijs-webpack.svg)](https://npmjs.org/package/physijs-webpack)
 
+[//]: # (status / activity)
 [![build status](https://img.shields.io/travis/agilgur5/physijs-webpack.svg)](https://travis-ci.org/agilgur5/physijs-webpack)
 
 [![NPM](https://nodei.co/npm/physijs-webpack.png?downloads=true&downloadRank=true&stars=true)](https://npmjs.org/package/physijs-webpack)
