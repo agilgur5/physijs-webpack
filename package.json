@@ -37,6 +37,7 @@
     "port"
   ],
   "scripts": {
+    "changelog": "changelog-maker",
     "test": "npm run clean && npm run browserify && npm run webpack && ava",
     "test:browserify": "npm run browserify && ava browserify.spec.js",
     "test:webpack": "npm run webpack && ava webpack.spec.js",
@@ -53,6 +54,7 @@
     "three": "^0.73.0"
   },
   "devDependencies": {
+    "@agilgur5/changelog-maker": "^3.0.0",
     "@react-frontend-developer/jsdom-worker": "^0.1.1",
     "ava": "^2.1.0",
     "browser-env": "^3.2.6",
