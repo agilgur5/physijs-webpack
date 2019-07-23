@@ -1,6 +1,6 @@
 {
   "name": "physijs-webpack",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "PhysiJS port for bundlers with out-of-the-box support for Webpack and Browserify",
   "main": "webpack.js",
   "files": [
