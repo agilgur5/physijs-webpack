@@ -11,7 +11,7 @@
     "browserify.js",
     "browserify-worker-stub.js"
   ],
-  "author": "agilgur5",
+  "author": "Anton Gilgur",
   "license": "MIT",
   "homepage": "https://github.com/agilgur5/physijs-webpack",
   "repository": {
