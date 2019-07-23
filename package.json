@@ -11,21 +11,15 @@
     "browserify.js",
     "browserify-worker-stub.js"
   ],
-  "scripts": {
-    "test": "npm run clean && npm run browserify && npm run webpack && ava",
-    "test:browserify": "npm run browserify && ava browserify.spec.js",
-    "test:webpack": "npm run webpack && ava webpack.spec.js",
-    "browserify": "browserify test-utils/browserify/_export-to-window.js > build/browserify.bundle.js",
-    "webpack": "webpack test-utils/webpack/_export-to-window.js -o build/webpack.bundle.js --mode='development'",
-    "clean": "rm -rf build/ && mkdir build/"
+  "author": "agilgur5",
+  "license": "MIT",
+  "homepage": "https://github.com/agilgur5/physijs-webpack",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:agilgur5/physijs-webpack.git"
   },
-  "ava": {
-    "require": [
-      "./test-utils/_setup-browser-env.js"
-    ]
-  },
-  "peerDependencies": {
-    "three": "^0.73.0"
+  "bugs": {
+    "url": "https://github.com/agilgur5/physijs-webpack/issues"
   },
   "keywords": [
     "physijs",
@@ -42,16 +36,22 @@
     "three.js",
     "port"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:agilgur5/physijs-webpack.git"
+  "scripts": {
+    "test": "npm run clean && npm run browserify && npm run webpack && ava",
+    "test:browserify": "npm run browserify && ava browserify.spec.js",
+    "test:webpack": "npm run webpack && ava webpack.spec.js",
+    "browserify": "browserify test-utils/browserify/_export-to-window.js > build/browserify.bundle.js",
+    "webpack": "webpack test-utils/webpack/_export-to-window.js -o build/webpack.bundle.js --mode='development'",
+    "clean": "rm -rf build/ && mkdir build/"
   },
-  "homepage": "https://github.com/agilgur5/physijs-webpack",
-  "bugs": {
-    "url": "https://github.com/agilgur5/physijs-webpack/issues"
+  "ava": {
+    "require": [
+      "./test-utils/_setup-browser-env.js"
+    ]
   },
-  "author": "agilgur5",
-  "license": "MIT",
+  "peerDependencies": {
+    "three": "^0.73.0"
+  },
   "devDependencies": {
     "@react-frontend-developer/jsdom-worker": "^0.1.1",
     "ava": "^2.1.0",
