@@ -35,19 +35,14 @@
     "port"
   ],
   "scripts": {
-    "coverage": "npm run build:test && nyc ava",
-    "test": "npm run build:test && ava",
-    "test:browserify": "npm run browserify && ava test/browserify.spec.js",
-    "test:webpack": "npm run webpack && ava test/webpack.spec.js",
+    "coverage": "npm run build:test && jest --coverage",
+    "test": "npm run build:test && jest",
+    "test:browserify": "npm run browserify && jest test/browserify.spec.js",
+    "test:webpack": "npm run webpack && jest test/webpack.spec.js",
     "build:test": "npm run clean && npm run browserify && npm run webpack",
     "browserify": "node test/build-config/_browserify.config.js",
     "webpack": "webpack --config test/build-config/_webpack.config.js",
     "clean": "rm -rf build/ && mkdir build/"
-  },
-  "ava": {
-    "require": [
-      "./test/utils/_setup-browser-env.js"
-    ]
   },
   "peerDependencies": {
     "three": "^0.73.0"
@@ -55,12 +50,9 @@
   "devDependencies": {
     "@agilgur5/changelog-maker": "^3.0.0",
     "@react-frontend-developer/jsdom-worker": "^0.1.1",
-    "ava": "^2.1.0",
-    "browser-env": "^3.2.6",
     "browserify": "^16.2.3",
-    "exorcist": "^1.0.1",
+    "jest": "^24.9.0",
     "node-fetch": "^2.6.0",
-    "nyc": "^14.1.1",
     "three": "^0.73.2",
     "webpack": "^4.34.0",
     "webpack-cli": "^3.3.4",

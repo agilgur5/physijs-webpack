@@ -16,6 +16,6 @@ module.exports = {
   module: {
     noParse: require.resolve('../../physijs/vendor/ammo.js')
   },
-  // source maps needed for test coverage reporting
-  devtool: 'source-map'
+  // inline source maps needed for jest's coverage reporting
+  devtool: 'inline-cheap-source-map'
 }

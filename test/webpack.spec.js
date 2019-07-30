@@ -1,8 +1,6 @@
-import test from 'ava'
+const Physijs = require('./utils/webpack/_import-bundle-to-module.js')
 
-import Physijs from './utils/webpack/_import-bundle-to-module.js'
-
-test('Scene creation', t => {
+test('Scene creation', () => {
   const scene = new Physijs.Scene()
-  t.is(scene.type, 'Scene')
+  expect(scene.type).toBe('Scene')
 })

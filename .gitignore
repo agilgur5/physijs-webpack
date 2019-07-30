@@ -1,5 +1,5 @@
 build/
-.nyc_output/
+coverage/
 
 ### Node ###
 
