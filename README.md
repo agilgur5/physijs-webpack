@@ -10,7 +10,7 @@
 [![dm](https://img.shields.io/npm/dm/physijs-webpack.svg)](https://npmjs.org/package/physijs-webpack)
 [![dw](https://img.shields.io/npm/dw/physijs-webpack.svg)](https://npmjs.org/package/physijs-webpack)
 <br><!-- status / activity -->
-[![build status](https://img.shields.io/travis/agilgur5/physijs-webpack.svg)](https://travis-ci.org/agilgur5/physijs-webpack)
+[![build status](https://img.shields.io/travis/agilgur5/physijs-webpack/master.svg)](https://travis-ci.org/agilgur5/physijs-webpack)
 <br>
 [![NPM](https://nodei.co/npm/physijs-webpack.png?downloads=true&downloadRank=true&stars=true)](https://npmjs.org/package/physijs-webpack)
 
