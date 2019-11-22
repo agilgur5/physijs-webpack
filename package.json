@@ -47,7 +47,7 @@
   },
   "ava": {
     "require": [
-      "./test-utils/_setup-browser-env.js"
+      "./test/utils/_setup-browser-env.js"
     ]
   },
   "peerDependencies": {
