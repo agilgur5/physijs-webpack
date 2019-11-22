@@ -4,7 +4,7 @@ const fs = require('fs')
 browserify({
   entries: './test/utils/browserify/_export-to-window.js',
   // don't parse ammo
-  noParse: ['vendor/ammo.js'],
+  noParse: [require.resolve('../../physijs/vendor/ammo.js')],
   // don't bundle three
 }).external('three')
   .bundle()

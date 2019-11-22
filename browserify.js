@@ -8,6 +8,6 @@ function PhysijsWorker () {
 };
 
 // inject Three.js and Physijs's Worker
-var Physijs = require('./physi.js')(THREE, PhysijsWorker);
+var Physijs = require('./physijs/physi.js')(THREE, PhysijsWorker);
 
 module.exports = Physijs;
