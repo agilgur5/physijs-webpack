@@ -14,6 +14,6 @@ module.exports = {
   externals: /^three$/,
   // don't parse ammo
   module: {
-    noParse: path.join(process.cwd(), '/vendor/ammo.js')
+    noParse: require.resolve('../../physijs/vendor/ammo.js')
   }
 }
