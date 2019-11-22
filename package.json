@@ -39,8 +39,8 @@
   "scripts": {
     "changelog": "changelog-maker",
     "test": "npm run clean && npm run browserify && npm run webpack && ava",
-    "test:browserify": "npm run browserify && ava browserify.spec.js",
-    "test:webpack": "npm run webpack && ava webpack.spec.js",
+    "test:browserify": "npm run browserify && ava test/browserify.spec.js",
+    "test:webpack": "npm run webpack && ava test/webpack.spec.js",
     "browserify": "node browserify.config.js",
     "webpack": "webpack",
     "clean": "rm -rf build/ && mkdir build/"
