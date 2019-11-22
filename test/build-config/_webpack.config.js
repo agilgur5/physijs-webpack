@@ -3,7 +3,7 @@ const path = require('path')
 module.exports = {
   entry: './test/utils/webpack/_export-to-window.js',
   output: {
-    path: path.join(__dirname, '/build/'),
+    path: path.join(process.cwd(), '/build/'),
     filename: 'webpack.bundle.js',
     library: 'Physijs',
     libraryTarget: 'umd'
@@ -14,6 +14,6 @@ module.exports = {
   externals: /^three$/,
   // don't parse ammo
   module: {
-    noParse: path.join(__dirname, '/vendor/ammo.js')
+    noParse: path.join(process.cwd(), '/vendor/ammo.js')
   }
 }
