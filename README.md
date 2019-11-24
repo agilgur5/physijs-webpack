@@ -30,7 +30,7 @@ npm install -S physijs-webpack
 var Physijs = require('physijs-webpack');
 ```
 
-and install `worker-loader` with:
+and install [`worker-loader`](https://github.com/webpack-contrib/worker-loader) with:
 
 ```bash
 npm install -D worker-loader
@@ -42,7 +42,7 @@ npm install -D worker-loader
 var Physijs = require('physijs-webpack/browserify');
 ```
 
-and install `webworkify` with:
+and install [`webworkify`](https://github.com/browserify/webworkify) with:
 
 ```bash
 npm install -D webworkify

@@ -4,7 +4,7 @@
   "description": "PhysiJS port for bundlers with out-of-the-box support for Webpack and Browserify",
   "main": "webpack.js",
   "files": [
-    "physijs/*",
+    "physijs/**/*.js",
     "webpack.js",
     "browserify.js",
     "browserify-worker-stub.js"
