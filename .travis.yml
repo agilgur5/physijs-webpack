@@ -1,3 +1,3 @@
 language: node_js
 # default is apparently 0.10.48 for some reason O.O
-node_js: '8.9'
+node_js: '10.16.0'
