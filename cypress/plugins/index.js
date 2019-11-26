@@ -1,5 +1,6 @@
 const browserify = require('@cypress/browserify-preprocessor')
 const webpack = require('@cypress/webpack-preprocessor')
+const codeCovTask = require('@cypress/code-coverage/task')
 
 const ammoPath = require.resolve('../../physijs/vendor/ammo.js')
 
@@ -7,8 +8,14 @@ const bProcess = browserify({
   browserifyOptions: {
     // don't parse ammo
     noParse: [ammoPath],
-    // override the preprocessor default (which runs babelify)
-    transform: []
+    debug: true, // inline source maps
+    // add babelify solely for usage of babel-plugin-istanbul
+    transform: [['babelify', {
+      ignore: [/ammo/, /three/], // this is an EXPONENTIAL speed up
+      ast: false,
+      babelrc: false,
+      plugins: ['istanbul'] // instrument with istanbul
+    }]]
   }
 })
 
@@ -19,7 +26,14 @@ const wProcess = webpack({
     // don't parse ammo
     module: {
       noParse: ammoPath,
-    }
+      rules: [{
+        test: /\.js$/,
+        use: { loader: 'istanbul-instrumenter-loader' },
+        exclude: [/ammo/, /three/] // this is an EXPONENTIAL speed up
+      }]
+    },
+    // sourcemaps for coverage reporting
+    devtool: 'inline-cheap-source-map'
   }
 })
 
@@ -31,4 +45,6 @@ module.exports = (on) => {
     }
     return bProcess(file)
   })
+
+  on('task', codeCovTask)
 }

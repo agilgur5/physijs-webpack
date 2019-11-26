@@ -44,9 +44,13 @@
   "devDependencies": {
     "@agilgur5/changelog-maker": "^3.0.0",
     "@cypress/browserify-preprocessor": "^2.1.1",
+    "@cypress/code-coverage": "^1.10.2",
     "@cypress/webpack-preprocessor": "^4.1.1",
+    "babel-plugin-istanbul": "^5.2.0",
     "browserify": "^16.2.3",
     "cypress": "^3.6.1",
+    "istanbul-instrumenter-loader": "^3.0.1",
+    "nyc": "^14.1.1",
     "three": "^0.73.2",
     "webpack": "^4.34.0",
     "webworkify": "^1.5.0",
