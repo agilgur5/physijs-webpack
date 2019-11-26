@@ -1,8 +1,8 @@
-import test from 'ava'
+const Physijs = require('./utils/browserify/_import-bundle-to-module.js')
 
-import Physijs from './utils/browserify/_import-bundle-to-module.js'
-
-test('Scene creation', t => {
-  const scene = new Physijs.Scene()
-  t.is(scene.type, 'Scene')
+describe('browserify', () => {
+  it('should create a scene', () => {
+    const scene = new Physijs.Scene()
+    expect(scene.type).toBe('Scene')
+  })
 })
