@@ -1,3 +1,16 @@
 language: node_js
 # default is apparently 0.10.48 for some reason O.O
 node_js: '10.16.0'
+
+# add xvfb per Electron CI instructions (https://github.com/electron/electron/blob/master/docs/tutorial/testing-on-headless-ci.md)
+addons:
+  apt:
+    packages:
+      - xvfb
+
+install:
+  # configure xvfb per Electron CI instructions as well
+  - export DISPLAY=':99.0'
+  - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+  # default install command
+  - npm ci
