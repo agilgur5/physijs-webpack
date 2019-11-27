@@ -1,3 +1,11 @@
 language: node_js
 # default is apparently 0.10.48 for some reason O.O
-node_js: '8.9'
+node_js: '10.16.0'
+
+# cache folder with Electron binary (https://github.com/electron/electron/blob/master/docs/tutorial/installation.md#cache)
+cache:
+  directories:
+    - ~/.cache
+
+# run with xvfb bc it's needed for Electron (https://docs.travis-ci.com/user/gui-and-headless-browsers/#using-the-xvfb-run-wrapper)
+script: xvfb-run npm test
